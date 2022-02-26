@@ -1,0 +1,17 @@
+[
+	[
+		{
+			"nombre": 7,
+			"timestamp": "24/10/1996",
+			"id": 5,
+			"descripcion": "Hola",
+			"codigo": 1995,
+			"fotoUrl": "www.ejemplo.com",
+			"precio": 196
+		}
+	],
+	{
+		"id": 80,
+		"productos": []
+	}
+]
