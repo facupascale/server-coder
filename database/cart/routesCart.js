@@ -21,14 +21,15 @@ routerCart.get("/:id/productos", (req, res, next) => {
 })
 
 routerCart.post("/:id/productos", (req, res, next) => {
-	let {id} = req.params
-	let {idCarrito} = req.body
+	let id = req.params.id
+	let idCart = req.body.idCart
 	let prodFile = 'productsDataBase.txt'
-	res.json(contenedor.addProdCart(id, idCarrito, prodFile))
+	res.json(contenedor.addProdCart(id, idCart, prodFile))
 })
 
 routerCart.delete('/:id/productos/:id_prod', (req, res, netx) => {
 	let {id, id_prod} = req.params
+	console.log(req.params)
 	res.json(contenedor.deleteProdId(id, id_prod))
 })
 

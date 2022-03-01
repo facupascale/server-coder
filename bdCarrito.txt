@@ -1,17 +1,32 @@
 [
-	[
-		{
-			"nombre": 7,
-			"timestamp": "24/10/1996",
-			"id": 5,
-			"descripcion": "Hola",
-			"codigo": 1995,
-			"fotoUrl": "www.ejemplo.com",
-			"precio": 196
-		}
-	],
 	{
-		"id": 80,
-		"productos": []
+		"id": 94,
+		"productos": [
+			{
+				"nombre": "fa",
+				"timestamp": "0022-02-22",
+				"id": "22",
+				"descripcion": "a",
+				"codigo": "22",
+				"fotoUrl": "22",
+				"precio": "22",
+				"stock": "22"
+			}
+		]
+	},
+	{
+		"id": 3,
+		"productos": [
+			{
+				"nombre": "facundo",
+				"timestamp": "0022-02-22",
+				"id": "2",
+				"descripcion": "pascale",
+				"codigo": "2",
+				"fotoUrl": "2",
+				"precio": "2",
+				"stock": "2"
+			}
+		]
 	}
 ]

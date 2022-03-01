@@ -50,9 +50,10 @@ class Contenedor {
 
 
 	// post: '/' => incorpora productos al listado (solo admins)
-	async postAdd(nombre, timestamp, id, codigo, fotoUrl, precio, stock) {
+	async postAdd(nombre, timestamp, id,descipcion, codigo, fotoUrl, precio, stock) {
 		try {
-			let newProduct = new Producto(nombre, timestamp, id, codigo, fotoUrl, precio, stock)
+			let newProduct = new Producto(nombre, timestamp, id, descipcion,  codigo, fotoUrl, precio, stock)
+			console.log(newProduct)
 			this.productos.push(newProduct)
 			await fs.promises.writeFile(this.file, JSON.stringify(this.productos, null, '\t'), () => {
 
@@ -65,24 +66,28 @@ class Contenedor {
 
 
 	// put: '/:id' => actualizar un producto por su id (solo admins)
-	async updateById(nombre, timestamp, id, codigo, fotoUrl, precio, stock) {
+	async updateById(nombre, timestamp, id, descripcion, codigo, fotoUrl, precio, stock) {
+		console.log(id, 'soy id')
 		try {
-
 			let index = this.productos.findIndex((prod) => prod.id == id)
+			console.log(index, 'soy index')
 			this.productos[index] = {
 				nombre: nombre,
 				timestamp: timestamp,
+				id: id,
+				descripcion: descripcion,
 				codigo: codigo,
 				fotoUrl: fotoUrl,
 				precio: precio,
 				stock: stock,
-				id: id
 			}
-			await fs.promises.writeFile(this.file, JSON.stringify(this.productos, null, '\t'), () => {
-				return {code: 200, message: 'Se ha modificado con exito'}
-			})
+			if(index != -1) {
+				await fs.promises.writeFile(this.file, JSON.stringify(this.productos, null, '\t'), () => {
+					return {code: 200, message: 'Se ha modificado con exito'}
+				})
+			}
 		} catch (error) {
-			return {error: 'Producto no encontrado', code: 406}
+			return {message: 'Producto no encontrado', code: 406}
 		}
 	}
 

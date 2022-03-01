@@ -12,7 +12,7 @@ router.get("/:id?", (req, res, next) => {
 
 router.post("/", (req, res, next) => {
 	const {nombre, timestamp, id, descripcion, codigo, fotoUrl, precio, stock} = req.body
-	if (nombre != undefined && timestamp != undefined && id != undefined && descripcion != undefined && codigo != undefined && fotoUrl != undefined && precio != undefined && stock != undefined) {
+	if (nombre && timestamp  && id  && descripcion && codigo && fotoUrl && precio && stock) {
 		contenedor.postAdd(nombre, timestamp, id, descripcion, codigo, fotoUrl, precio, stock)
 		res.json({code: 200, message: 'Se agrego con exito!'})
 	} else {
@@ -21,10 +21,9 @@ router.post("/", (req, res, next) => {
 })
 
 router.put("/:id", (req, res, next) => {
-	let id = req.params.id
-	const {nombre, timestamp, descripcion, codigo, fotoUrl, precio, stock} = req.body
-	if (nombre != undefined && timestamp != undefined && id != undefined && descripcion != undefined && codigo != undefined && fotoUrl != undefined && precio != undefined && stock != undefined) {
-		res.json(contenedor.updateById(nombre, timestamp, id, descripcion, fotoUrl, precio, stock))
+	const {nombre, timestamp, id, descripcion, codigo, fotoUrl, precio, stock} = req.body
+	if (nombre && timestamp && id && descripcion && codigo && fotoUrl && precio && stock ) {
+		res.json(contenedor.updateById(nombre, timestamp, id, descripcion, codigo, fotoUrl, precio, stock))
 	} else {
 		res.json({error: 'Comprobar que todos los datos requeridos han sido enviados', code: 400})
 	}
