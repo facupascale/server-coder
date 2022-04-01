@@ -1,36 +1,42 @@
 const ContenedorCarrito = require('./cartClass')
+const {ContenedorMongo} = require('./mongooseCart')
 const express = require('express')
 const {Router} = express
 const routerCart = Router()
 
 
-let contenedor = new ContenedorCarrito('bdCarrito.txt')
+//let contenedor = new ContenedorCarrito('bdCarrito.txt')
+let contenedor = new ContenedorMongo()
 
-routerCart.post("/", (req, res, next) => {
-	res.json(contenedor.createCart())
+routerCart.post("/", async (req, res, next) => {
+	let response = await contenedor.createCart()
+	res.json(response)
 })
 
-routerCart.delete("/:id", (req, res, next) => {
+routerCart.delete("/:id", async (req, res, next) => {
 	let id = req.params.id
-	res.json(contenedor.deleteCart(id))
+	let response = await contenedor.deleteCart(id)
+	res.json(response)
 })
 
-routerCart.get("/:id/productos", (req, res, next) => {
+routerCart.get("/:id/productos", async (req, res, next) => {
 	let id = req.params.id
-	res.json(contenedor.listProdCart(id))
+	let response = await contenedor.listProdCart(id)
+	res.json(response)
 })
 
-routerCart.post("/:id/productos", (req, res, next) => {
+routerCart.post("/:id/productos", async (req, res, next) => {
 	let id = req.params.id
 	let idCart = req.body.idCart
-	let prodFile = 'productsDataBase.txt'
-	res.json(contenedor.addProdCart(id, idCart, prodFile))
+	//let prodFile = 'productsDataBase.txt'
+	let response = await contenedor.addProdCart(id, idCart)
+	res.json(response)
 })
 
-routerCart.delete('/:id/productos/:id_prod', (req, res, netx) => {
+routerCart.delete('/:id/productos/:id_prod', async (req, res, netx) => {
 	let {id, id_prod} = req.params
-	console.log(req.params)
-	res.json(contenedor.deleteProdId(id, id_prod))
+	let response = await contenedor.deleteProdId(id, id_prod)
+	res.json(response)
 })
 
 module.exports = routerCart
