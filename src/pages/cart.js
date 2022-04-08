@@ -10,7 +10,7 @@ export default function Cart({ idCarrito, setIdCarrito, reloadProds, setReloadPr
     const createCart = async () => {
         try {
             let data = await crearCarrito()
-            setIdCarrito(data.id)
+            setIdCarrito(data.data[0].value._id)
         } catch(err) {
             console.log(err)
         }
@@ -34,7 +34,7 @@ export default function Cart({ idCarrito, setIdCarrito, reloadProds, setReloadPr
         try {
             let data = await productosEnCarrito(idCarrito)
             if (data.code == 200) {
-                setProductos(data.data.productos)
+                setProductos(data.data[0].productos)
             } else {
                 alert('Hubo un error, intente nuevamente')
             } 

@@ -1,5 +1,5 @@
 // acordarme de desisntalar AXIOS
-const API_URL = 'http://localhost:8080/api/productos'
+const API_URL = 'http://localhost:8006/api/productos'
 
 export const getProductos = async (id) => {
     
@@ -9,10 +9,12 @@ export const getProductos = async (id) => {
         await fetch(`${API_URL}/${id}`, { method: 'GET'})
         .then(res => res.json())
         .then(data => prods = data)
+        .catch(err => console.log(err, 'soy err'))
     } else {
         await fetch(`${API_URL}/`, { method: 'GET'})
         .then(res => res.json())
-        .then(data => prods = data)
+        .then(data =>  prods = data)
+        .catch(err => console.log(err, 'soy err'))
     }
 
     return prods
@@ -32,8 +34,8 @@ export const newProductos = async (form) => {
 export const actualizarProd = async (data) => {
 
     let { nombre, timestamp, id, descripcion, codigo, fotoUrl, precio, stock} = data
-    let prods
     console.log(data, 'soy data')
+    let prods
     await fetch(`${API_URL}/${id}`, { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data)})
     .then(res => res.json())
     .then(data => prods = data)

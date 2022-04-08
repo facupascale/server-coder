@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:8080/api/carrito'
+const API_URL = 'http://localhost:8006/api/carrito'
 
 export const crearCarrito = async () => {
     
@@ -45,7 +45,6 @@ export const agregarProductosCarrito = async (dataApi) => {
 }
 
 export const borrarProductosCarrito = async (dataApi) => {
-    console.log(dataApi)
     let cart
 
         await fetch(`${API_URL}/${dataApi.id}/productos/${dataApi.id_prod}`, { method: 'DELETE' })

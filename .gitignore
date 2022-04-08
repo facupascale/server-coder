@@ -21,3 +21,7 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+#firebase
+
+/database/config/firebase/server-coder-firebase-adminsdk-mwjh1-23bd012d61.json

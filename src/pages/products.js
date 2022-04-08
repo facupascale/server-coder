@@ -14,7 +14,7 @@ export default function Products({ user }) {
     const productos = async () => {
         try {
             const data = id !== null ? await getProductos(id) : await getProductos();
-            setProds(data.data)
+            setProds(data.body)
             setId('')
         } catch(err) {
             console.log(err)
