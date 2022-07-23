@@ -23,7 +23,6 @@ class ContenedorMongo {
     async getAll() {
         try {
             const productos = await ProductoModel.find({})
-            console.log(productos, 'soy productos')
             return {code: 200, body: productos}
         } catch (err) {
             console.log(err, 'soy err')
@@ -41,8 +40,9 @@ class ContenedorMongo {
 
     async postAdd(nombre, timestamp, id, descripcion, codigo, fotoUrl, precio, stock) {
         try {
+            const productosLength = await ProductoModel.find({})
             const inserciones = []
-            let producto = [{ nombre: nombre, timestamp: timestamp, id: id, descripcion: descripcion, codigo: codigo, fotoUrl: fotoUrl, precio: precio, stock: stock }]
+            let producto = [{ nombre: nombre, timestamp: timestamp, id: productosLength.length + 1, descripcion: descripcion, codigo: codigo, fotoUrl: fotoUrl, precio: precio, stock: stock }]
     
             for( const product of producto) {
                 inserciones.push(ProductoModel.create(product))

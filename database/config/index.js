@@ -3,6 +3,11 @@ require('dotenv').config();
 let config = {
     port: process.env.PORT || 8000,
     cors: process.env.CORS,
+    passGmail: process.env.PASS_GMAIL,
+    toTwilio: process.env.TO_TWILIO,
+    fromTwilio: process.env.FROM_TWILIO,
+    accountSid: process.env.ACCOUNT_SID,
+    authToken: process.env.AUTH_TOKEN,
 }
 
 let mongo_db = {

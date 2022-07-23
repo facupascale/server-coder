@@ -35,7 +35,6 @@ class ContenedorMongo {
     async listProdCart(id) {
         try {
             let result = await CartModel.find({ _id: id})
-            console.log(result, 'soy result en list prod cart')
             return {code: 200, message:  'Se listaron los productos con exito', data: result}
         } catch (err) {
             return err

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { crearCarrito, eliminarCarrito, productosEnCarrito, borrarProductosCarrito } from '../services/carritoEndpoints';
 import ProductList from '../components/productsList';
 
@@ -29,6 +30,8 @@ export default function Cart({ idCarrito, setIdCarrito, reloadProds, setReloadPr
             console.log(err)
         }
     }
+
+    // modificar esta funcion para evitar alertas innecesarias.
 
     const productList = async () => {
         try {
@@ -67,6 +70,7 @@ export default function Cart({ idCarrito, setIdCarrito, reloadProds, setReloadPr
 
     return (
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+            <Link to='/'>Volver al inicio</Link>
             <span style={{ marginTop: '2%'}}>ID de Carrito: {idCarrito}</span>
             <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
                 <button onClick={createCart} style={{ marginTop: '2%', marginRight: '1%'}}>Crear Carrito</button>

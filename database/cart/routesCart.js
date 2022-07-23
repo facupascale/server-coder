@@ -39,4 +39,6 @@ routerCart.delete('/:id/productos/:id_prod', async (req, res, netx) => {
 	res.json(response)
 })
 
+// hacer ruta de checkout  para enviar por mail y wsp la orden al ADMIN Y al numero de telefono del usuario la confirmacion del mismo 
+
 module.exports = routerCart

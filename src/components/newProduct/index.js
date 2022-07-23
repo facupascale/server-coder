@@ -7,7 +7,6 @@ export default function NewProducto({producto, reloadProds, setReloadProds}) {
         nombre: '',
         descripcion: '',
         timestamp: '',
-        id: '',
         codigo: '',
         fotoUrl: '',
         precio: '',
@@ -25,7 +24,6 @@ export default function NewProducto({producto, reloadProds, setReloadProds}) {
                     nombre: '',
                     descripcion: '',
                     timestamp: '',
-                    id: '',
                     codigo: '',
                     fotoUrl: '',
                     precio: '',
@@ -59,7 +57,6 @@ export default function NewProducto({producto, reloadProds, setReloadProds}) {
                     nombre: '',
                     descripcion: '',
                     timestamp: '',
-                    id: '',
                     codigo: '',
                     fotoUrl: '',
                     precio: '',
@@ -77,7 +74,6 @@ export default function NewProducto({producto, reloadProds, setReloadProds}) {
                 <input type='text' placeholder='Ingresa el nombre' value={form.nombre} onChange={e => setForm({...form, nombre: e.target.value})}/>
                 <input type='text' placeholder='Ingresa el descripcion' value={form.descripcion}  onChange={e => setForm({...form, descripcion: e.target.value})}/>
                 <input type='date' placeholder='Ingresa la fecha' value={form.timestamp}  onChange={e => setForm({...form, timestamp: e.target.value})}/>
-                { producto !== undefined ? null : <input type='number' placeholder='Ingresa el id' value={form.id}  onChange={e => setForm({...form, id: e.target.value})}/>}
                 <input type='text' placeholder='Ingresa el codigo' value={form.codigo}  onChange={e => setForm({...form, codigo: e.target.value})}/>
                 <input type='text' placeholder='Ingresa el url de la imagen' value={form.fotoUrl}  onChange={e => setForm({...form, fotoUrl: e.target.value})}/>
                 <input type='number' placeholder='Ingresa el precio' value={form.precio}  onChange={e => setForm({...form, precio: e.target.value})}/>

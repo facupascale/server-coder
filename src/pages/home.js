@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom'
 import Products from './products'
 
 export default function Home() {
@@ -10,6 +11,7 @@ export default function Home() {
             <div style={{ display: 'flex', flexDirection: 'row', width: '100%', justifyContent: 'center'}}>
                 <button onClick={() => setUser('Admin')} style={{ marginRight: '1%'}}>Admin</button>
                 <button onClick={() => setUser('Client')} style={{ marginLeft: '1%'}}>Client</button>
+                <Link to='/cart' style={{ marginLeft: '1%'}}>Carrito</Link>
             </div>
             <Products user={user}/>
         </div>
